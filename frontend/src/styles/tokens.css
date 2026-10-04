@@ -1,0 +1,37 @@
+:root {
+  /* Palette */
+  --black: #0d0d0d;
+  --ink: #1a1613;
+  --brown: #3a2a1e;
+  --brown-soft: #5a4636;
+  --cream: #f4efe6;
+  --cream-deep: #e8e0d2;
+  --white: #ffffff;
+  --gold: #b8925a;
+  --gold-soft: #cbab7d;
+  --bronze: #9a7648;
+
+  /* Semantic */
+  --bg: var(--cream);
+  --bg-dark: var(--black);
+  --text: var(--ink);
+  --text-muted: #6b5f52;
+  --text-inverse: #f4efe6;
+  --line: rgba(58, 42, 30, 0.16);
+  --line-inverse: rgba(244, 239, 230, 0.18);
+  --accent: var(--gold);
+
+  /* Type */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Rhythm */
+  --radius: 2px;
+  --maxw: 1280px;
+  --gutter: clamp(20px, 5vw, 64px);
+  --section-y: clamp(72px, 10vw, 140px);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.6s;
+}

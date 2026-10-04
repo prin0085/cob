@@ -1,0 +1,25 @@
+.cta {
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--cream);
+  text-align: center;
+  padding-block: clamp(90px, 14vw, 180px);
+}
+@media (hover: none) {
+  .cta { background-attachment: scroll; }
+}
+.cta__inner {
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.cta__eyebrow { color: var(--gold-soft); }
+.cta__title { max-width: 16ch; }
+.cta__desc {
+  color: rgba(244, 239, 230, 0.8);
+  max-width: 46ch;
+  margin-bottom: 12px;
+}

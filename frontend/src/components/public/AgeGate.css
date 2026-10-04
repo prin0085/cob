@@ -1,0 +1,71 @@
+.agegate {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+.agegate__bg {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(rgba(13, 13, 13, 0.86), rgba(13, 13, 13, 0.92)),
+    url('https://picsum.photos/seed/cob-agegate/1600/1000') center/cover;
+}
+.agegate__box {
+  position: relative;
+  text-align: center;
+  max-width: 460px;
+  color: var(--cream);
+  animation: agefade 0.7s var(--ease) both;
+}
+.agegate__lang {
+  position: absolute;
+  top: -46px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  gap: 5px;
+  background: none;
+  border: 1px solid var(--line-inverse);
+  border-radius: var(--radius);
+  padding: 6px 12px;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: rgba(244, 239, 230, 0.55);
+}
+.agegate__lang span.is-active { color: var(--gold); }
+.agegate__lang:hover { border-color: var(--gold); }
+@keyframes agefade {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+.agegate__logo {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  margin-bottom: 28px;
+}
+.agegate__title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin-bottom: 14px;
+}
+.agegate__text {
+  color: rgba(244, 239, 230, 0.72);
+  margin-bottom: 30px;
+}
+.agegate__actions {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.agegate__note {
+  margin-top: 26px;
+  font-size: 0.74rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244, 239, 230, 0.45);
+}

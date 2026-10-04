@@ -1,0 +1,18 @@
+.collection__head {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+.collection__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 28px);
+}
+.collection__grid > .reveal { height: 100%; }
+@media (max-width: 1000px) {
+  .collection__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 540px) {
+  .collection__grid { grid-template-columns: 1fr; }
+}
