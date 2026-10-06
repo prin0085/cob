@@ -188,6 +188,24 @@ npm start
 - Set `VITE_API_BASE` to the deployed API origin before building.
 - Ensure the host serves `index.html` for unknown routes (SPA fallback) so `/admin/*` and `/product/*` work on refresh.
 
+### Netlify deployment
+
+The repository includes a root `netlify.toml` that configures the frontend deployment:
+
+| Setting | Value |
+|---------|-------|
+| Base directory | `frontend` |
+| Build command | `npm ci --include=dev && npm run build` |
+| Publish directory | `dist` (relative to `frontend`) |
+
+Deploy from the connected Git repository or the Netlify CLI. The build command explicitly installs the frontend's locked dependencies, including Vite and its React plugin, before compiling the site. This also supports CLI deployments that do not perform a separate dependency-install step, and prevents `vite: not found` when development dependencies would otherwise be omitted. Keep `frontend/package-lock.json` committed and synchronized with `frontend/package.json`.
+
+The deployed directory must contain the generated `index.html`, not the repository's source files. The configuration rewrites `/admin/*` and `/product/*` to that entry point so direct links and page refreshes load React Router instead of Netlify's 404 page. Existing static files are served normally.
+
+The Express backend is a separate service; this frontend deployment does not start `backend/src/server.js`. Set `VITE_API_BASE` in Netlify's environment variables to your deployed API origin (without a trailing slash or `/api` suffix), configure the backend's `CLIENT_ORIGIN` to allow the frontend's origin, and redeploy after changing `VITE_API_BASE`. Never put backend secrets in `VITE_*` variables because they are exposed to the browser.
+
+If the site loads but content or admin login fails, check the backend deployment and API configuration separately. API and upload requests are intentionally not rewritten to the frontend HTML. Running the existing SQLite backend inside a Netlify Function would also require migrating its database and uploaded files to persistent platform storage; the static frontend deployment alone does not do that.
+
 ---
 
 ## 10. API Overview
